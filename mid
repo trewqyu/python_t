@@ -1,0 +1,47 @@
+import pandas as pd
+
+travel = pd.read_csv('/content/drive/MyDrive/tn_travel_여행_H.csv', encoding='utf-8-sig')
+transport = pd.read_csv('/content/drive/MyDrive/tn_mvmn_consume_his_이동수단소비내역_H.csv', encoding='utf-8-sig')
+lodging = pd.read_csv('/content/drive/MyDrive/tn_lodge_consume_his_숙박소비내역_H.csv', encoding='utf-8-sig')
+activity_consume = pd.read_csv('/content/drive/MyDrive/tn_activity_consume_his_활동소비내역_H.csv', encoding='utf-8-sig')
+activity = pd.read_csv('/content/drive/MyDrive/tn_activity_his_활동내역_H.csv', encoding='utf-8-sig')
+visit = pd.read_csv('/content/drive/MyDrive/tn_visit_area_info_방문지정보_H.csv', encoding='utf-8-sig')
+codeB = pd.read_csv('/content/drive/MyDrive/tc_codeb_코드B.csv', encoding='utf-8-sig')
+
+#데이터 확인
+print("✅ [travel 파일]")
+print(travel.columns)
+print(travel.head(), "\n")
+
+print("✅ [transport 파일]")
+print(transport.columns)
+print(transport.head(), "\n")
+
+print("✅ [lodging 파일]")
+print(lodging.columns)
+print(lodging.head(), "\n")
+
+print("✅ [activity_consume 파일]")
+print(activity_consume.columns)
+print(activity_consume.head(), "\n")
+
+print("✅ [activity 파일]")
+print(activity.columns)
+print(activity.head(), "\n")
+
+print("✅ [visit 파일]")
+print(visit.columns)
+print(visit.head(), "\n")
+
+print("✅ [codeB 파일]")
+print(codeB.columns)
+print(codeB.head(), "\n")
+
+#분석 용이하게 추출
+travel = travel[['TRAVEL_ID', 'TRAVEL_PURPOSE']]
+transport = transport[['TRAVEL_ID', 'PAYMENT_NUM', 'PAYMENT_AMT_WON']]
+lodging = lodging[['TRAVEL_ID', 'PAYMENT_NUM', 'PAYMENT_AMT_WON']]
+activity_consume = activity_consume[['TRAVEL_ID', 'PAYMENT_NUM', 'PAYMENT_AMT_WON']]
+activity = activity[['TRAVEL_ID', 'VISIT_AREA_ID', 'ACTIVITY_TYPE_CD']]
+visit = visit[['VISIT_AREA_ID', 'VISIT_AREA_NM']]
+
